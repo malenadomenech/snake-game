@@ -1,5 +1,6 @@
 import turtle
 from turtle import *
+import random
  
 
 #Configuración de la ventana
@@ -19,6 +20,16 @@ cabeza.color("black")
 cabeza.penup()
 cabeza.goto(0,0)
 cabeza.direction = "stop"
+
+#Comida
+comida = turtle.Turtle()
+comida.speed(0)
+comida.shape("circle")
+comida.color("red")
+comida.penup()
+comida.goto(0,100)
+
+
 
 #Funciones
 def arriba():
@@ -62,6 +73,10 @@ wn.onkeypress(derecha, "Right")
 while True:
     mov()
     wn.update()
+    if cabeza.distance(comida) < 20:
+        x = random.randint(-280, 280)
+        y = random.randint(-280, 280)
+        comida.goto(x,y)
 
 
     
