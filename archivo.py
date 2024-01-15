@@ -1,8 +1,6 @@
 import turtle
 from turtle import *
-import time
  
-posponer = 0.1
 
 #Configuración de la ventana
 
@@ -20,25 +18,42 @@ cabeza.shape("square")
 cabeza.color("black")
 cabeza.penup()
 cabeza.goto(0,0)
-cabeza.direction = "left"
+cabeza.direction = "stop"
 
 #Funciones
+def arriba():
+    cabeza.direction = "up"
+def abajo():
+    cabeza.direction = "down"
+def izquierda():
+    cabeza.direction = "left"
+def derecha():
+    cabeza.direction = "right"
+
+
 def mov():
     if cabeza.direction == "up":
         y = cabeza.ycor()
-        cabeza.sety(y + 20)
+        cabeza.sety(y + 0.10)
     
     if cabeza.direction == "down":
         y = cabeza.ycor()
-        cabeza.sety(y - 20)
+        cabeza.sety(y - 0.10)
     
     if cabeza.direction == "left":
         x = cabeza.xcor()
-        cabeza.setx(x - 20)
+        cabeza.setx(x - 0.10)
 
     if cabeza.direction == "right":
         x = cabeza.xcor()
-        cabeza.setx(x + 20)
+        cabeza.setx(x + 0.10)
+
+#Teclado
+wn.listen()
+wn.onkeypress(arriba, "Up")
+wn.onkeypress(abajo, "Down")
+wn.onkeypress(izquierda, "Left")
+wn.onkeypress(derecha, "Right")
 
     
 
@@ -48,7 +63,7 @@ while True:
     mov()
     wn.update()
 
-time.sleep(posponer)
+
     
 
 
