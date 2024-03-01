@@ -1,6 +1,7 @@
 import turtle
 from turtle import *
 import random
+import time
 
 # Configuración de la ventana
 wn = turtle.Screen()
@@ -72,6 +73,17 @@ def mov():
             segmentos[i].goto(x, y)
 
     wn.update()
+    
+    #Colisiones bordes
+
+    if cabeza.xcor() > 280 or cabeza.xcor() < -280 or cabeza.ycor() > 280 or cabeza.ycor() < -280:
+
+        time.sleep(1)
+
+        cabeza.goto(0,0)
+
+        cabeza.direction = "stop"
+
 
     # Colisiones comida
     if cabeza.distance(comida) < 20:
